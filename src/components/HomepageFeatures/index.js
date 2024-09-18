@@ -1,0 +1,73 @@
+import clsx from 'clsx';
+import Heading from '@theme/Heading';
+import styles from './styles.module.css';
+
+const FeatureList = [
+  {
+    title: 'ISU',
+    imgSrc: 'data:image/png;base64,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',
+    description: (
+      <>
+          The International Skating Union (ISU) is the international governing
+          body for competitive ice skating disciplines, including figure skating,
+          synchronized skating, speed skating, and short track speed skating.
+          It was founded in Scheveningen, Netherlands, in July 1892,
+          making it one of the oldest international sport federations.
+      </>
+    ),
+  },
+  {
+    title: 'ROC',
+      imgSrc: 'https://static.wixstatic.com/media/951cf3_0a9f73a6889f4ebe8a1fcdbe548ebea3~mv2.png/v1/fill/w_530,h_530,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image-empty-state.png',
+    description: (
+      <>
+          The Russian Olympic Committee (ROC)
+          is the National Olympic Committee representing Russia. Its president is Stanislav Pozdnyakov.
+          On 12 October 2023, the International Olympic Committee (IOC)
+          suspended the membership of the Russian Olympic Committee.
+      </>
+    ),
+  },
+  {
+    title: 'Olympics',
+    imgSrc: 'https://yt3.googleusercontent.com/ytc/AIdro_mAox1Q3Td0BNFEkDJziicg4g1UaqS79iiOt6eawgE5UKNo=s900-c-k-c0x00ffffff-no-rj',
+    description: (
+      <>
+          The modern Olympic Games or Olympics are the leading international
+          sporting events featuring summer and winter sports competitions
+          in which thousands of athletes from around the world participate in a variety of competitions.
+          The Olympic Games are considered the world's foremost sports
+          competition with more than 200 teams, representing sovereign states
+          and territories participating.
+      </>
+    ),
+  },
+];
+
+function Feature({imgSrc, title, description}) {
+  return (
+    <div className={clsx('col col--4')}>
+      <div className="text--center">
+        <img className={styles.featureImg} src={imgSrc} alt={title} />
+      </div>
+      <div className="text--center padding-horiz--md">
+        <Heading as="h3">{title}</Heading>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
+}
+
+export default function HomepageFeatures() {
+  return (
+    <section className={styles.features}>
+      <div className="container">
+        <div className="row">
+          {FeatureList.map((props, idx) => (
+            <Feature key={idx} {...props} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
